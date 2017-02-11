@@ -11,7 +11,8 @@ notifications:
 
 before_install:
   - CI_SOURCE_PATH=$(pwd)
-  - REPOSITORY_NAME=${PWD##*/}
+    #- REPOSITORY_NAME=${PWD##*/}
+  - REPOSITORY_NAME=tue_robocup
   - echo "Testing branch $TRAVIS_BRANCH of $REPOSITORY_NAME"
 
 install:
@@ -33,9 +34,9 @@ before_script:
 
   # go to the catkin workspace
   - cd "$TUE_SYSTEM_DIR"
+  - source ~/.tue/setup.bash # source once again (is this necessary?)
 
 script:
   # - catkin build
-  - source ~/.tue/setup.bash # source once again
   - tue-make
   - catkin run_tests # and run them
