@@ -15,6 +15,7 @@ notifications:
 before_install:
   - CI_SOURCE_PATH=$(pwd)
   - REPOSITORY_NAME=${PWD##*/}
+  - ROS_DISTRO="kinetic"
   - echo "Testing branch $TRAVIS_BRANCH of $REPOSITORY_NAME"
 
 install:
