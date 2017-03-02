@@ -5,19 +5,16 @@ transforms (tf) from to the hand from the joint angles and the AR-
 marker position.
 
 In short, amigo first brings its hands in a grasping position, then
-looks at one of the hands and publishes the tf from that hand to the
-marker on that hand."""
+looks at one of the hands and prints the tf from that hand relative to
+the marker on that hand."""
 
 from robot_skills.amigo import Amigo
 import rospy
+import tf2_ros
 
 if __name__ == "__main__":
     rospy.init_node("hands_ARmarkers_test", anonymous=True)
     amigo = Amigo()
-
-    # Create topics for the left and right hand
-    # left_tf  = rospy.Publisher('lefthand_error',  std_msgs.msg.String, queue_size=10)
-    # right_tf = rospy.Publisher('righthand_error', std_msgs.msg.String, queue_size=10)
 
     # Position the arms in grasping position and look at left hand
     rospy.loginfo('Sending left arm goal')
@@ -29,6 +26,16 @@ if __name__ == "__main__":
     rospy.loginfo('Sending head goal')
     amigo.head.look_at_hand("left")
 
-    # Publish tf
-    # left_tf.publish()
-    # right_tf.publish()
+    # Print transform
+    tfBuffer = tf2_ros.Buffer()
+    listener = tf2_ros.TransformListener(tfBuffer)
+
+    rate = rospy.Rate(2.0)
+    while not rospy.is_shutdown():
+        try:
+            rospy.loginfo(tfBuffer.lookup_transform(amigo/hand_right, ar_marker_6, rospy.Time()))
+            # rospy.loginfo(tfBuffer.lookup_transform(amigo/hand_left, ar_marker_3, rospy.Time()))
+        except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+            rate.sleep()
+            continue
+        rate.sleep()
