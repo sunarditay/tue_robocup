@@ -24,7 +24,8 @@ if __name__ == "__main__":
     amigo.rightArm._send_joint_trajectory([[0,0.5,0.3,1.2,-0.15,-0.1,-0.2]])
 
     rospy.loginfo('Sending head goal')
-    amigo.head.look_at_hand("left")
+    amigo.head.look_at_hand("right")
+    # amigo.head.look_at_hand("left")
 
     # Print transform
     tfBuffer = tf2_ros.Buffer()
@@ -33,9 +34,17 @@ if __name__ == "__main__":
     rate = rospy.Rate(2.0)
     while not rospy.is_shutdown():
         try:
-            rospy.loginfo(tfBuffer.lookup_transform(amigo/hand_right, ar_marker_6, rospy.Time()))
-            # rospy.loginfo(tfBuffer.lookup_transform(amigo/hand_left, ar_marker_3, rospy.Time()))
-        except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+            rospy.loginfo(tfBuffer.lookup_transform("amigo/hand_right", 
+                                                    "ar_marker_3", 
+                                                    rospy.Time(), 
+                                                    rospy.rostime.Duration(5)))
+            # rospy.loginfo(tfBuffer.lookup_transform("amigo/hand_left", 
+            #                                         "ar_marker_6", 
+            #                                         rospy.Time(), 
+            #                                         rospy.rostime.Duration(5)))
+        except (tf2_ros.LookupException, 
+                tf2_ros.ConnectivityException, 
+                tf2_ros.ExtrapolationException):
             rate.sleep()
             continue
         rate.sleep()
