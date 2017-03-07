@@ -19,7 +19,7 @@ install:
   -  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
   - sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
   - sudo apt-get update
-  - sudo apt-get install ros-indigo-ros-base  # This is necessary for tue-env
+  - sudo apt-get install ros-$ROS_DISTRO-ros-base  # This is necessary for tue-env
   - source <(wget -O- https://raw.githubusercontent.com/tue-robotics/tue-env/master/installer/scripts/bootstrap-ros-$ROS_DISTRO)
   - tue-get install ros-$REPOSITORY_NAME
   - source ~/.tue/setup.bash # source all target setup files
