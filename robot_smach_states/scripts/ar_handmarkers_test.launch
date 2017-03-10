@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
-	<arg name="marker_size" default="4.4" />
+	<arg name="marker_size" default="4.5" />
 	<arg name="max_new_marker_error" default="0.08" />
 	<arg name="max_track_error" default="0.2" />
 	<arg name="cam_image_topic" default="/rgb/image" />
@@ -20,7 +20,5 @@
 
 	<node name="ar_handmarkers_test" pkg="robot_smach_states" type="ar_handmarkers_test.py" output="screen"/>
 	
-<!--
-	<node name="rgbd_to_ros" pkg="rgbd" type="rgbd_to_ros" arg="/amigo/top_kinect/rgbd" />
--->
+	<node name="rgbd_to_ros" pkg="rgbd" type="rgbd_to_ros" args="/amigo/top_kinect/rgbd" />
 </launch>
