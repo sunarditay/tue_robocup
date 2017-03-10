@@ -4,9 +4,9 @@
 	<arg name="marker_size" default="4.4" />
 	<arg name="max_new_marker_error" default="0.08" />
 	<arg name="max_track_error" default="0.2" />
-	<arg name="cam_image_topic" default="/camera/rgb/image_rect_color" />
-	<arg name="cam_info_topic" default="/camera/rgb/camera_info" />
-	<arg name="output_frame" default="/amigo/top_kinect/openni_rgb_frame" />
+	<arg name="cam_image_topic" default="/rgb/image" />
+	<arg name="cam_info_topic" default="/rgb/camera_info" />
+	<arg name="output_frame" default="/amigo/top_kinect/openni_rgb_optical_frame" />
 
 	<node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen">
 		<param name="marker_size"           type="double" value="$(arg marker_size)" />
@@ -18,5 +18,9 @@
 		<remap from="camera_info"   to="$(arg cam_info_topic)" />
 	</node>
 
-	<node name="ar_handmarkers_test" pkg="robot_smach_states" type="ar_handmarkers_test.py" />
+	<node name="ar_handmarkers_test" pkg="robot_smach_states" type="ar_handmarkers_test.py" output="screen"/>
+	
+<!--
+	<node name="rgbd_to_ros" pkg="rgbd" type="rgbd_to_ros" arg="/amigo/top_kinect/rgbd" />
+-->
 </launch>
