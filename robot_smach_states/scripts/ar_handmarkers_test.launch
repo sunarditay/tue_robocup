@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 
+<!-- 
+The tested AR markers on the hands of amigo seem to be given a 
+wrong position by ar_track_alvar. They seem to be further away 
+and slightly rotated relative to the camera. It has not been 
+properly tested if this is also the case for AR-detection with 
+depth information (using /depth/points and individualMarkers).
+ -->
+
 <launch>
 	<arg name="marker_size" default="4.5" />
 	<arg name="max_new_marker_error" default="0.08" />
