@@ -18,10 +18,10 @@ if __name__ == "__main__":
 
     # Position the arms in grasping position and look at left hand
     rospy.loginfo('Sending left arm goal')
-    amigo.leftArm._send_joint_trajectory([[0,0.5,0.3,1.2,-0.15,-0.1,-0.2]])
+    amigo.leftArm._send_joint_trajectory([[0,0.5,0.3,1.2,0.15,0.15,-0.2]])
 
     rospy.loginfo('Sending right arm goal')
-    amigo.rightArm._send_joint_trajectory([[0,0.5,0.3,1.2,-0.15,-0.1,-0.2]])
+    amigo.rightArm._send_joint_trajectory([[0,0.5,0.3,1.2,0.15,0.15,-0.2]])
 
     rospy.loginfo('Sending head goal')
     amigo.head.look_at_hand("right")
