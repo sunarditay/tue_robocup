@@ -20,3 +20,4 @@ amigo3:
 
     rosrun challenge_following_and_guiding challenge_following_and_guiding.py [robot_name]
 
+POEP KAAS WATER
