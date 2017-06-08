@@ -36,3 +36,5 @@ The robot goes back to the starting position, where it should meet the operator 
 Finally, the task log is reported to the user just before the robot returns back to idle state.
 
 ![GPSR flow chart](doc/GPSR.jpeg)
+
+DO NOT MERGE UGLY LINES LIKE THESE!
