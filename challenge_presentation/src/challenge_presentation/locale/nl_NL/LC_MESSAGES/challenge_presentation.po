@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: challenge_presentation VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-07 16:08+0200\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Loy van Beek <loy.vanbeek@gmail.com>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: presentation.py:32
+msgid "Hello, my name is"
+msgstr "Hallo, mijn naam is"
+
+#: presentation.py:33
+msgid ""
+"I am one of the service robots of the Eindhoven University of Technology"
+msgstr "Ik ben ben 1 van de zorgrobots van de TU Eindhoven"
+
+#: presentation.py:34
+msgid "My purpose is to help people in domestic or care environments."
+msgstr ""
+
+#: presentation.py:37
+msgid "I have an omnidirectional base instead of legs"
+msgstr ""
+
+#: presentation.py:38
+msgid ""
+"With this base, I can instantly move in any direction and turn around "
+"whenever I want"
+msgstr ""
+
+#: presentation.py:46
+msgid ""
+"I have two arms. These have the dimensions and degrees of freedom of human "
+"arms"
+msgstr ""
+
+#: presentation.py:48
+msgid ""
+"This makes me capable of moving my arms just like you would move your arms."
+msgstr ""
+
+#: presentation.py:51
+msgid ""
+"At the end of my arms, I have two grippers with which I can grasp objects"
+msgstr ""
+
+#: presentation.py:52
+msgid "My grippers can be opened and closed when I need to."
+msgstr ""
+
+#: presentation.py:64
+msgid ""
+"My arms are mounted on a moveable torso. This way, I can grasp higher and "
+"lower."
+msgstr ""
+
+#: presentation.py:72
+msgid ""
+"As a head, I have a 3D camera. I use this to detect and recognize objects "
+"and people."
+msgstr ""
+
+#: presentation.py:76
+msgid ""
+"My 3D camera is mounted on top of my torso and I can move my camera just "
+"like a human head."
+msgstr ""
+
+#: presentation.py:85
+msgid ""
+"Furthermore, I have two laser range finders to help me to see where I am"
+msgstr ""
+
+#: presentation.py:86
+msgid ""
+"One laser is mounted on my torso and the other one is at the bottom of my "
+"base"
+msgstr ""
+
+#: presentation.py:91
+msgid ""
+"Finally, I have a microphone on my head so that I can hear what you are "
+"saying"
+msgstr ""
+
+#: presentation.py:94
+msgid ""
+"Thank you for listening, I hope that you like what you see and have a nice "
+"day."
+msgstr ""
