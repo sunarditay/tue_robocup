@@ -96,7 +96,7 @@ class CheckIfDescribedEntityAvailable(smach.State):
             return 'failed'
 
 
-class Find(smach.StateMachine):
+class FindObject(smach.StateMachine):
     """
     Find an entity based on a description. The description designator should
     have resolve type dict and it should contain at least a 'type' field
