@@ -11,6 +11,7 @@ from robot_smach_states import Initialize, Say, WaitForPersonInFront, Turn, Wait
 from robot_smach_states.util.startup import startup
 import robot_smach_states.util.designators as ds
 
+from challenge_spr_states import ssl_check
 from challenge_spr_states import detect
 from challenge_spr_states import bluff_game
 from challenge_spr_states import riddle_game
@@ -20,6 +21,11 @@ class ChallengeSpeechPersonRecognition(smach.StateMachine):
         smach.StateMachine.__init__(self, outcomes=['Done','Aborted'])
 
         with self:
+            smach.StateMachine.add('SSL_CHECK',
+                                   ssl_check.SslCheck(robot),
+                                   transitions={"succeeded": "INITIALIZE",
+                                                "failed": "INITIALIZE"})
+
             smach.StateMachine.add('INITIALIZE',
                                    Initialize(robot),
                                    transitions={'initialized': 'ANNOUNCEMENT',
