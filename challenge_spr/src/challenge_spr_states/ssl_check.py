@@ -8,7 +8,7 @@ import math
 from robot_smach_states.util.startup import startup
 
 class SslCheck(smach.State):
-    def __init__(self, robot, timeout=5):
+    def __init__(self, robot, timeout=20):
         smach.State.__init__(self, outcomes=['succeeded', 'failed'])
         self.robot = robot
         self.timeout = timeout
@@ -18,9 +18,10 @@ class SslCheck(smach.State):
 
         while not rospy.is_shutdown():
             if self.robot.ssl._sub.get_num_connections() > 0:
-                rospy.loginfo("SSL connection established")
+                rospy.logerr("SSL connection established")
                 return "succeeded"
-            elif (rospy.Time.now() - start_time).to_sec() > self.timeout
+            elif (rospy.Time.now() - start_time).to_sec() > self.timeout:
+                rospy.logerr("SSL Timeout")
                 break
             rospy.sleep(0.5)  #TODO: correct api?
         rospy.logerr("No SSL connection found")
