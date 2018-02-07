@@ -75,7 +75,7 @@ VP["action": "demo-presentation", "language": X] -> V_PRESENT in LANGUAGE[X]
 grammar += """
 V_FIND -> find | locate | look for
 
-VP["action": "find", "object": {"type": X}, "location": {"id": Y}] -> V_FIND DET NAMED_OBJECT[X] MANIPULATION_AREA_LOCATION[Y]
+VP["action": "find", "object": {"type": X}, "source-location": {"id": Y}] -> V_FIND DET NAMED_OBJECT[X] MANIPULATION_AREA_LOCATION[Y]
 VP["action": "find", "object": {"type": X}] -> V_FIND DET NAMED_OBJECT[X]
 """
 
@@ -114,7 +114,7 @@ OBJECT_TO_BE_BROUGHT -> NAMED_OBJECT | DET NAMED_OBJECT
 V_BRING -> bring | deliver | take | carry | transport | give | hand | hand over
 
 VP["action": "bring", "source-location": {"id": X}, "target-location": {"id": Y}, "object": {"type": Z}] -> V_BRING OBJECT_TO_BE_BROUGHT[Z] from the LOCATION[X] to the LOCATION[Y]
-VP["action": "bring", "source-location": {"id": X}, "target-location": {"type": "person", "id": "operator"}, "object": {"type": Z}] -> V_BRING me OBJECT_TO_BE_BROUGHT[Z] from the LOCATION[X] | V_BRING OBJECT_TO_BE_BROUGHT[Z] from the LOCATION[X] to me
+VP["action": "hand-over", "source-location": {"id": X}, "target-location": {"type": "person", "id": "operator"}, "object": {"type": Z}] -> V_BRING me OBJECT_TO_BE_BROUGHT[Z] from the LOCATION[X] | V_BRING OBJECT_TO_BE_BROUGHT[Z] from the LOCATION[X] to me
 """
 
 ##############################################################################
