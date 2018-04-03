@@ -110,8 +110,8 @@ grammar += """
 V_GOPL -> go to | navigate to
 V_GOR -> V_GOPL | enter
 
-VP[{"action": "navigate-to", "object": X}] -> V_GOR the ROOM[X]
-VP[{"action": "navigate-to", "object": X}] -> V_GOPL the LOCATION[X]
+VP[{"action": "navigate-to", "target-location": X}] -> V_GOR the ROOM[X]
+VP[{"action": "navigate-to", "target-location": X}] -> V_GOPL the LOCATION[X]
 """
 
 ###############################################################################
@@ -207,7 +207,7 @@ VP[{"action": "bring", "target-location": X, "object": {"type": "reference"}}] -
 
 VP[{"action": "hand-over", "source-location": X, "target-location": Y, "object": Z}] -> V_BRING OBJECT_TO_BE_BROUGHT[Z] from the ROOM_OR_LOCATION[X] to BRING_NAME[Y] | V_BRING OBJECT_TO_BE_BROUGHT[Z] to BRING_NAME[Y] from the ROOM_OR_LOCATION[X]
 VP[{"action": "hand-over", "target-location": Y, "object": Z}] -> V_BRING BRING_NAME[Y] OBJECT_TO_BE_BROUGHT[Z]
-VP[{"action": "hand-over", "source-location": X, "target-location": "id": Y, "object": Z}] -> V_BRING BRING_NAME[Y] OBJECT_TO_BE_BROUGHT[Z] from the ROOM_OR_LOCATION[X]
+VP[{"action": "hand-over", "source-location": X, "target-location": Y, "object": Z}] -> V_BRING BRING_NAME[Y] OBJECT_TO_BE_BROUGHT[Z] from the ROOM_OR_LOCATION[X]
 """
 
 for name in common.names:
