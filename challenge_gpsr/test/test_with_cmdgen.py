@@ -10,6 +10,17 @@ from grammar_parser import cfgparser
 
 # ----------------------------------------------------------------------------------------------------
 
+#https://stackoverflow.com/questions/287871/print-in-terminal-with-colors
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 class Parser():
     def __init__(self):
         eegpsr = rospy.get_param('~eegpsr', False)
@@ -27,7 +38,14 @@ class Parser():
 
 
     def parse(self, command):
-        return self.parser.parse(self.knowledge.grammar_target, command.strip().split(" "), debug=False)
+        try:
+            return bcolors.OKGREEN \
+                   + str(self.parser.parse(self.knowledge.grammar_target, command.strip().split(" "), debug=False)) \
+                   + bcolors.ENDC
+        except cfgparser.ParseError as e:
+            return bcolors.FAIL \
+                   + str(e) \
+                   + bcolors.ENDC
 
 
 def main():
@@ -75,8 +93,6 @@ def main():
 
     for command in command_lines:
         params = parser.parse(command)
-        if not params:
-            params = "I do not understand"
         print (command + ": " + str(params))
 
 
